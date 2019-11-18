@@ -1,9 +1,9 @@
 const WEEKDAY = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 let weatherNow = {
-    city: "New York",
+    city: "London",
     cloudiness: 50,
-    country: "US",
+    country: "UK",
     desc: "scattered clouds",
     humidity: 50,
     sunrise: 1519626034,
@@ -61,6 +61,7 @@ function setForecast(forecast, metric){
   }
 
 function setForecastDay(day, num, forecast, metric){
+    console.log("boop")
     var min = metric ? FtoC(forecast[num].min).toFixed(0) : forecast[num].min.toFixed(0);
     var max = metric ? FtoC(forecast[num].max).toFixed(0) : forecast[num].max.toFixed(0);
     $(day + " > h3").text(forecast[num].weekday);
