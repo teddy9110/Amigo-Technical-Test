@@ -52,13 +52,15 @@ function fetchForecast(lat, long, metric){
           tempMin = Number.POSITIVE_INFINITY;
           tempMax = Number.NEGATIVE_INFINITY;
         }
-        if(weather.main.temp < tempMin) tempMin = weather.main.temp;
+        if(weather.main.temp < tempMin) tempMin = weather.main.temp ;
         if(weather.main.temp > tempMax) tempMax = weather.main.temp;
         weekdayStr = WEEKDAY[date.getDay()];
+        console.log(tempMin)
+        console.log(tempMax)
       }
     });
     
-    if(forecast.length < 4) forecast.push({ weekday: weekdayStr, min: tempMin, max: tempMax});
+    if(forecast.length < 4) forecast.push({ weekday: weekdayStr, min: tempMin, max:tempMax });
   })
   .done(() => UI.setForecast(forecast, metric))
   

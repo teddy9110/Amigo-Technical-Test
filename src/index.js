@@ -25,6 +25,7 @@ $(document).ready(function(){
       } else {
         metric = true;
       }
+      
 
       UI.updateWeather(metric);
     }

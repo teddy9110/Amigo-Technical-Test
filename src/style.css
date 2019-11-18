@@ -29,7 +29,7 @@ p {
 }
 
 .blue-text {
-  color: #1496BB;
+  color: #000000;
 }
 .container {
   padding-top: 10rem; 
@@ -94,7 +94,7 @@ tr.spaceUnder>td {
 }
 
 .card-img-bottom {
-  background-color: #86b3e0;
+  background-color: #273c468f;
 }
 
 #attribution-text {

@@ -65,8 +65,8 @@ function setForecastDay(day, num, forecast, metric){
     var min = metric ? FtoC(forecast[num].min).toFixed(0) : forecast[num].min.toFixed(0);
     var max = metric ? FtoC(forecast[num].max).toFixed(0) : forecast[num].max.toFixed(0);
     $(day + " > h3").text(forecast[num].weekday);
-    $(day + " span").eq(0).text(max);
-    $(day + " span").eq(1).text(min);
+    $(day + " span").eq(0).text(max +"°  ");
+    $(day + " span").eq(1).text(min + "°  ");
 }
 
 function getTime(date, metric) {
