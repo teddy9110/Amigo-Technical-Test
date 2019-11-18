@@ -12,7 +12,7 @@
 <body>
 
   <div id="wrapper">
-    <div class="container">
+    <div class="container-fluid">
       <div class="card mx-auto mb-3 main-card">
 
                <h4 class="card-header">
@@ -23,7 +23,7 @@
       
         <div class="card-body">
           <div class="row">
-            <div class="col-7 text-center">
+            <div class="col-10 text-center">
               <p id="desc-now"></p>
               <div class="row py-24 justify-content-center">
                 <div class="col-auto pr-6">
@@ -37,8 +37,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-5 data-tables">
-              <table class="text-center">
+            <div class="col-3 data-tables">
+              <table class="text-center">                
                 <tr>
                   <td><i class="wi wi-strong-wind p-6"></i></td>
                   <td class="text-left">Wind: <span id="wind-now"></span></td>
@@ -50,7 +50,11 @@
                 <tr class="spaceUnder">
                   <td><i class="wi wi-cloudy p-6"></i></td>
                   <td class="text-left">Cloudiness: <span id="cloudiness-now"></span> %</td>
-                </tr>
+                </tr>           
+              </table>
+            </div>
+            <div class="col-2 data-tables"> 
+              <table class="text-right">
                 <tr>
                   <td><i class="wi wi-sunrise p-6"></i></td>
                   <td class="text-left">Sunrise: <span id="sunrise-now"></span></td>
