@@ -1,4 +1,4 @@
-const WEEKDAY = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const DAYOFTHEWEEK = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 let weatherNow = {
     city: "London",
@@ -34,12 +34,13 @@ function setCurrentWeather(weather, metric){
 }
 
 function updateWeather(metric){
-    var temp = metric ? FtoC(weatherNow.temp).toFixed(0) : weatherNow.temp.toFixed(0);
-    var wind = metric ? mphToKmh(weatherNow.wind).toFixed(0) + " km/h" : weatherNow.wind.toFixed(0) + " mph";
     var date = new Date();
-    var time = WEEKDAY[date.getDay()] + ", " + getTime(date, metric);
     var sunrise = getTime(new Date(weatherNow.sunrise * 1000), metric);
     var sunset = getTime(new Date(weatherNow.sunset * 1000), metric);
+    var temp = metric ? metrictoimp(weatherNow.temp).toFixed(0) : weatherNow.temp.toFixed(0);
+    var wind = metric ? mphToKmh(weatherNow.wind).toFixed(0) + " km/h" : weatherNow.wind.toFixed(0) + " mph";    
+    var time = DAYOFTHEWEEK[date.getDay()] + ", " + getTime(date, metric);
+    
     UIElements.tempNow.text(temp);
     UIElements.iconNow.addClass(typeToIcon(weatherNow.type));
     UIElements.descNow.text(weatherNow.desc);
@@ -62,9 +63,9 @@ function setForecast(forecast, metric){
 
 function setForecastDay(day, num, forecast, metric){
     console.log("boop")
-    var min = metric ? FtoC(forecast[num].min).toFixed(0) : forecast[num].min.toFixed(0);
-    var max = metric ? FtoC(forecast[num].max).toFixed(0) : forecast[num].max.toFixed(0);
-    $(day + " > h3").text(forecast[num].weekday);
+    var min = metric ? metrictoimp(forecast[num].min).toFixed(0) : forecast[num].min.toFixed(0);
+    var max = metric ? metrictoimp(forecast[num].max).toFixed(0) : forecast[num].max.toFixed(0);
+    $(day + " > h3").text(forecast[num].DAYOFTHEWEEK);
     $(day + " span").eq(0).text(max +"°  ");
     $(day + " span").eq(1).text(min + "°  ");
 }
@@ -87,7 +88,7 @@ function getTime(date, metric) {
     }
 }
 
-function FtoC(degree) {return (degree - 32) * 5/9;} // f to c conversion
+function metrictoimp(degree) {return (degree - 32) * 5/9;} // f to c conversion
 
 function mphToKmh(val) {return val * 1.609344;} // mph to mph conversion 
 
